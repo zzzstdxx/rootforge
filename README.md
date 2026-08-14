@@ -3,17 +3,17 @@
 
 ## THIS PROJECT IS STILL VERY EARLY AND EXPECT TO ENCOUNTER ISSUES WITH PACKAGE COMPATABILITY WITH YOUR SETUP ##
 
-# rootforge
+# Rootforge
 Rootforge GNU/Linux is a Linux Distribution based off Linux From Scratch targeted at expert users
 It's mostly a base of Linux From Scratch with flatpak, wayland, sway, foot terminal, fuzzel app launcher and some more stuff. This distro is meant to be crafted by the user to be something he likes, by example you can add a package manager, install Xorg if you dont like the default wayland, you are free to do anything you like.
 
 # If you need help compiling / installing stuff, you can go into the Linux From Scratch handbooks (i recommed version 12.4 because thats the version of LFS this distro is now based off) and follow the guide to compile it from there
 
-# features:
+# Features:
 - compile everything from source manually or with a custom package manager (optional)
 - wayland dependent coming with very little Xorg/X11 libraries
 - it's pretty easy to set up if you dont encounter any issues.
-# a few known issues (read before install):
+# A few known issues (read before install):
 - as I said already there can be issues with vulkan, mesa or other graphical stuff. For me, everything works, I got a gtx 1060 and a i7 3770k. If you encounter any issues with graphical stuff you can recompile it for your specs.
 - tarball is pretty chunky because this should be a decent base but I am working on keeping stuff light
 - only UEFI support is confirmed
@@ -72,6 +72,7 @@ chroot /mnt/rootforge/ /bin/bash
 then verify: ``lsblk``; if your root filesystem is now at ``/`` and not ``/mnt/rootforge`` then you're good
 also don't forget to run ``source /etc/profile``
 # Modifying /etc/ configs
+
 1. Edit /etc/fstab, at the end should look like this:
 ````
 # Begin /etc/fstab
@@ -99,8 +100,11 @@ cgroup2        /sys/fs/cgroup cgroup2  nosuid,noexec,nodev 0     0
 efivarfs /sys/firmware/efi/efivars efivarfs defaults 0 0
 ````
 But make sure that everything matches accordingly
+
 2. Run ``echo 'rootforge' > /etc/hostname`` to set the hostname to 'rootforge'
-3. Edit /etc/hosts/
+
+4. Edit /etc/hosts/
+
 Should look like:
 ````
 # Begin /etc/hosts
@@ -113,15 +117,20 @@ Should look like:
 # End /etc/hosts
 ~                    
 ````
+
 Make sure that your hostname matches the file
+
 4. Edit /etc/doas.conf
+
 ````
 permit nopass user
 ````
 Make sure to replace ``user`` with you actual desired username that we will get into soon
 Also ``nopass`` means the user doesn't have to put in a password to use doas
 If you want the user to use a password for doas change ``nopass`` to ``persist``
+
 5. Edit /etc/locale.conf
+
 It has instructions inside the file, set it to your preffered locale, if not en_US.UTF-8 will work fine
 # Compiling the Kernel
 
