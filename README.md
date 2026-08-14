@@ -114,3 +114,25 @@ Should look like:
 ~                    
 ````
 Make sure that your hostname matches the file
+4. Edit /etc/doas.conf
+````
+permit nopass user
+````
+Make sure to replace ``user`` with you actual desired username that we will get into soon
+Also ``nopass`` means the user doesn't have to put in a password to use doas
+If you want the user to use a password for doas change ``nopass`` to ``persist``
+5. Edit /etc/locale.conf
+It has instructions inside the file, set it to your preffered locale, if not en_US.UTF-8 will work fine
+# Compiling the Kernel
+
+This is where installs go to graces if you don't know how to correctly configure the Kernel im sorry but that's on you
+I recommend for everyone to check the LFS 12.4 page about this Kernel, it lists needed configurations for LFS which if you don't remember this Distro is based off LFS 12.4 so you'll need those configurations too.
+**[LFS 12.4 Linux-6.16.1](https://www.linuxfromscratch.org/lfs/view/12.4/chapter10/kernel.html)**
+
+1. ``cd`` into /usr/src: ``cd /usr/src``
+2. Extract the Linux source code: ``tar -xvf <name>``
+3. ``cd`` into the Linux directory
+4. Run ``make defconfig`` for the default config
+5. Run ``make menuconfig`` and compile the Kernel to your hardware
+6. Run ``make -j8 && make modules_install`` to compile the Kernel (might take a while)
+7. If that finishes peacefully then run ``cp /arch/x86_64/boot/bzImage /boot/vmlinuz-6.6.1``, ``cp System.map /boot/`` and finally ``cp .config /boot/config-6.6.1``
