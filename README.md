@@ -1,3 +1,6 @@
+## NOTE: THIS DISTRO IS AMD64 ONLY ##
+## INSTALLATION BELOW ##
+
 ## THIS PROJECT IS STILL VERY EARLY AND EXPECT TO ENCOUNTER ISSUES WITH PACKAGE COMPATABILITY WITH YOUR SETUP ##
 
 # rootforge
@@ -13,3 +16,8 @@ It's mostly a base of Linux From Scratch with flatpak, wayland, sway, foot termi
 # a few known issues:
 - as I said already there can be issues with vulkan, mesa or other graphical stuff. For me, everything works, I got a gtx 1060 and a i7 3770k. If you encounter any issues with graphical stuff you can recompile it for your specs.
 - tarball is pretty chunky because this should be a decent base but I am working on keeping stuff light
+
+## INSTALLATION ##
+# Introduction:
+1. You will need a USB stick
+2. Get the **[Gentoo LiveGUI — `livegui-amd64-20260811T083102Z.iso`](https://...)**
