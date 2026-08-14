@@ -20,4 +20,4 @@ It's mostly a base of Linux From Scratch with flatpak, wayland, sway, foot termi
 ## INSTALLATION ##
 # Introduction:
 1. You will need a USB stick
-2. Get the **[Gentoo LiveGUI — `livegui-amd64-20260811T083102Z.iso`](https://...)**
+2. Get the **[Gentoo LiveGUI — `livegui-amd64-20260811T083102Z.iso`](https://www.gentoo.org/downloads/amd64/)**
