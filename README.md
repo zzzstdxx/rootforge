@@ -20,22 +20,22 @@ It's mostly a base of Linux From Scratch with flatpak, wayland, sway, foot termi
 - tarball is pretty chunky because this should be a decent base but I am working on keeping stuff light
 - only UEFI support is confirmed
 
-## INSTALLATION ##
-# Preparetions:
+# INSTALLATION #
+## Preparetions: ##
 1. You will need a USB stick
 2. Get the **[Gentoo LiveGUI — `livegui-amd64-20260811T083102Z.iso`](https://www.gentoo.org/downloads/amd64/)**
 3. Flash the image to a USB stick using BalenaEtcher or Ventoy
 4. Boot the USB stick
 5. Open a terminal, get connected to the internet and open Firefox to view this guide
 6. From the terminal, run ``sudo su root`` to change the user to root
-# Preparing filesystems
+## Preparing filesystems ##
 1. Run ``cfdisk`` and format your disk partitions accordingly (i recommend SWAP parition, EFI parition and root partition)
 2. EFI partition should be 1G, swap partiton should be as big as you want and the root partition should take the rest of the disk space (biggest partition)
 3. Create an ext4 filesystem for you root parition (example if /dev/sda3 is root parition: ``mkfs.ext4 /dev/sda3``)
 4. Create a FAT32 filesystem for your boot partition (example if /dev/sda1 is boot parition: ``mkfs.fat -F32 /dev/sda1``)
 5. Create a swap filesystem for your swap partition (example if /dev/sda2 is swap partition: ``mkswap /dev/sda2``)
 6. Run ``mkdir -p /mnt/rootforge`` to create the mountpoint
-# Mounting and Chrooting into the enviorment
+## Mounting and Chrooting into the enviorment ##
 1. First off, mount your root partition into ``/mnt/rootforge`` by doing ``mount /dev/<<rootname>> /mnt/rootforge``
 2. Verify this by running lsblk; if your root partition is mounted at ``/mnt/rootforge`` you're good
 3. Go into ``/mnt/rootforge`` by running ``cd /mnt/rootforge``
@@ -51,7 +51,7 @@ It's mostly a base of Linux From Scratch with flatpak, wayland, sway, foot termi
 ``mkdir -p /mnt/rootforge/{boot/efi,tmp,mnt,media}``
 
 ``chmod 1777 /mnt/rootforge/tmp``
-# Chroot into the enviorment:
+## Chroot into the enviorment: ##
 `````
 mount --rbind /dev /mnt/rootforge/dev
 mount --make-rslave /mnt/rootforge/dev
@@ -75,7 +75,7 @@ chroot /mnt/rootforge/ /bin/bash
 ````
 then verify: ``lsblk``; if your root filesystem is now at ``/`` and not ``/mnt/rootforge`` then you're good
 also don't forget to run ``source /etc/profile``
-# Modifying /etc/ configs
+## Modifying /etc/ configs ##
 
 1. Edit /etc/fstab, at the end should look like this:
 ````
@@ -136,7 +136,7 @@ If you want the user to use a password for doas change ``nopass`` to ``persist``
 5. Edit /etc/locale.conf
 
 It has instructions inside the file, set it to your preffered locale, if not en_US.UTF-8 will work fine
-# Compiling the Kernel
+## Compiling the Kernel ##
 
 This is where installs go to graces if you don't know how to correctly configure the Kernel im sorry but that's on you
 I recommend for everyone to check the LFS 12.4 page about this Kernel, it lists needed configurations for LFS which if you don't remember this Distro is based off LFS 12.4 so you'll need those configurations too.
@@ -150,13 +150,13 @@ I recommend for everyone to check the LFS 12.4 page about this Kernel, it lists 
 6. Run ``make menuconfig`` and compile the Kernel to your hardware
 7. Run ``make -j8 && make modules_install`` to compile the Kernel (might take a while)
 8. If that finishes peacefully then run ``cp /arch/x86_64/boot/bzImage /boot/vmlinuz-6.6.1``, ``cp System.map /boot/`` and finally ``cp .config /boot/config-6.6.1``
-#  GRUB
+## GRUB ##
 1. To install grub for most users on UEFI run ``grub-install /dev/<<root>>``
 2. Then run ``grub-mkconfig /boot/grub/grub.cfg``
-# Reboot
+## Reboot ##
 1. Now you should be able to reboot.
 2. First off, exit the Chroot enviorment by running ``exit``
 3. Then, you should unmount your disk paritions (optional) by running ``umount -R /mnt/rootforge``
 4. Reboot and you should be able to use your system.
 
-## Post install will be coming soon for now you'll be fine getting information off Linux From Scratch 12.4 Handbook
+# Post install will be coming soon for now you'll be fine getting information off Linux From Scratch 12.4 Handbook #
