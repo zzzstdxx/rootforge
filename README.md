@@ -14,6 +14,8 @@ It's mostly a base of Linux From Scratch with flatpak, wayland, sway, foot termi
 - wayland dependent coming with very little Xorg/X11 libraries
 - it's pretty easy to set up if you dont encounter any issues.
 # A few known issues (read before install):
+- gcc 15.2 which comes preinstalled wasn't configured yet to work with pentium III or older, 32 bit only CPUs, AMD Athlon XP or older and any other non x86_64 architectures; Your CPU also has to support AVX, SSE, SSE2, SSSE3, CX16; if not, you have to compile GCC in the Chroot enviorment following a LFS guide.
+# NOTE: At version 1.0 I will struggle to reinstall LFS freshly and add support with any x86_64 CPU, add multilib and add more GPU support, which will mean a new base
 - as I said already there can be issues with vulkan, mesa or other graphical stuff. For me, everything works, I got a gtx 1060 and a i7 3770k. If you encounter any issues with graphical stuff you can recompile it for your specs.
 - tarball is pretty chunky because this should be a decent base but I am working on keeping stuff light
 - only UEFI support is confirmed
@@ -143,10 +145,11 @@ I recommend for everyone to check the LFS 12.4 page about this Kernel, it lists 
 1. ``cd`` into /usr/src: ``cd /usr/src``
 2. Extract the Linux source code: ``tar -xvf <name>``
 3. ``cd`` into the Linux directory
-4. Run ``make defconfig`` for the default config
-5. Run ``make menuconfig`` and compile the Kernel to your hardware
-6. Run ``make -j8 && make modules_install`` to compile the Kernel (might take a while)
-7. If that finishes peacefully then run ``cp /arch/x86_64/boot/bzImage /boot/vmlinuz-6.6.1``, ``cp System.map /boot/`` and finally ``cp .config /boot/config-6.6.1``
+4. Run ``make mrproper`` for a fresh directory
+5. Run ``make defconfig`` for the default config
+6. Run ``make menuconfig`` and compile the Kernel to your hardware
+7. Run ``make -j8 && make modules_install`` to compile the Kernel (might take a while)
+8. If that finishes peacefully then run ``cp /arch/x86_64/boot/bzImage /boot/vmlinuz-6.6.1``, ``cp System.map /boot/`` and finally ``cp .config /boot/config-6.6.1``
 #  GRUB
 1. To install grub for most users on UEFI run ``grub-install /dev/<<root>>``
 2. Then run ``grub-mkconfig /boot/grub/grub.cfg``
