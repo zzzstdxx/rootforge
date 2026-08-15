@@ -37,11 +37,12 @@ It's mostly a base of Linux From Scratch with flatpak, wayland, sway, foot termi
 1. First off, mount your root partition into ``/mnt/rootforge`` by doing ``mount /dev/<<rootname>> /mnt/rootforge``
 2. Verify this by running lsblk; if your root partition is mounted at ``/mnt/rootforge`` you're good
 3. Go into ``/mnt/rootforge`` by running ``cd /mnt/rootforge``
-4. Download the rootforge tarball by running ``wget https://sourceforge.net/projects/rootforgelinux/files/rootforge-0.1-part2.tar.xz``
-5. Extract the tarball by running ``tar -xpvf rootforge-0.1-part2.tar.xz``
-6. Run ``ls`` and if you see the Linux file structure you're good
-7. If when running ``ls`` you see a leftover ``boot/`` partition you should remove it by doing ``rm -rf /mnt/rootforge/boot/``
-8. Create some directories:
+4. Go to ``https://sourceforge.net/projects/rootforgelinux/files/`` using a browser and download the latest .tar.xz tarball into /home/gentoo/Downloads
+5. Then in the terminal, run ``cp /home/gentoo/Downloads/rootforge-* /mnt/rootforge``
+6. Then extract the tarball by running ``tar xpvf rootforge-* --xattrs-include='*.*' --numeric-owner -C /mnt/rootforge``
+7. Run ``ls`` and if you see the Linux file structure you're good
+8. If when running ``ls`` you see a leftover ``boot/`` partition you should remove it by doing ``rm -rf /mnt/rootforge/boot/``
+9. Create some directories:
 
 ``mkdir -p /mnt/rootforge/{dev,proc,sys,run}``
 
