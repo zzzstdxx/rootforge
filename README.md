@@ -21,7 +21,7 @@ It's mostly a base of Linux From Scratch with flatpak, wayland, sway, foot termi
 - only UEFI support is confirmed
 
 # INSTALLATION #
-## Preparetions: ##
+## Preparations: ##
 1. You will need a USB stick
 2. Get the **[Gentoo LiveGUI — `livegui-amd64-20260811T083102Z.iso`](https://www.gentoo.org/downloads/amd64/)**
 3. Flash the image to a USB stick using BalenaEtcher or Ventoy
