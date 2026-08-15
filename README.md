@@ -145,3 +145,13 @@ I recommend for everyone to check the LFS 12.4 page about this Kernel, it lists 
 5. Run ``make menuconfig`` and compile the Kernel to your hardware
 6. Run ``make -j8 && make modules_install`` to compile the Kernel (might take a while)
 7. If that finishes peacefully then run ``cp /arch/x86_64/boot/bzImage /boot/vmlinuz-6.6.1``, ``cp System.map /boot/`` and finally ``cp .config /boot/config-6.6.1``
+#  GRUB
+1. To install grub for most users on UEFI run ``grub-install /dev/<<root>>``
+2. Then run ``grub-mkconfig /boot/grub/grub.cfg``
+# Reboot
+1. Now you should be able to reboot.
+2. First off, exit the Chroot enviorment by running ``exit``
+3. Then, you should unmount your disk paritions (optional) by running ``umount -R /mnt/rootforge``
+4. Reboot and you should be able to use your system.
+
+## Post install will be coming soon for now you'll be fine getting information off Linux From Scratch 12.4 Handbook
