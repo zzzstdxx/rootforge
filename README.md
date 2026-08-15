@@ -42,11 +42,12 @@ It's mostly a base of Linux From Scratch with flatpak, wayland, sway, foot termi
 6. Run ``ls`` and if you see the Linux file structure you're good
 7. If when running ``ls`` you see a leftover ``boot/`` partition you should remove it by doing ``rm -rf /mnt/rootforge/boot/``
 8. Create some directories:
-``
-mkdir -p /mnt/rootforge/{dev,proc,sys,run}
-mkdir -p /mnt/rootforge/{boot/efi,tmp,mnt,media}
-chmod 1777 /mnt/rootforge/tmp
-``
+
+``mkdir -p /mnt/rootforge/{dev,proc,sys,run}``
+
+``mkdir -p /mnt/rootforge/{boot/efi,tmp,mnt,media}``
+
+``chmod 1777 /mnt/rootforge/tmp``
 # Chroot into the enviorment:
 `````
 mount --rbind /dev /mnt/rootforge/dev
