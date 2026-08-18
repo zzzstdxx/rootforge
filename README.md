@@ -22,7 +22,7 @@ It's mostly a base of Linux From Scratch with flatpak, wayland, sway, foot termi
 - tarball is pretty chunky because this should be a decent base but I am working on keeping stuff light
 - only UEFI support is confirmed
 
-# Version 0.3 Handbook #
+# Version 0.2 Handbook #
 ## Preparations: ##
 1. You will need a USB stick
 2. Get the **[Gentoo LiveGUI — `livegui-amd64-20260811T083102Z.iso`](https://www.gentoo.org/downloads/amd64/)**
