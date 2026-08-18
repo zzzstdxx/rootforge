@@ -8,7 +8,7 @@
 Rootforge GNU/Linux is a Linux Distribution based off Linux From Scratch targeted at expert users
 It's mostly a base of Linux From Scratch with flatpak, wayland, sway, foot terminal, fuzzel app launcher and some more stuff. This distro is meant to be crafted by the user to be something he likes, by example you can add a package manager, install Xorg if you dont like the default wayland, you are free to do anything you like.
 
-# If you need help compiling / installing stuff, you can go into the Linux From Scratch handbooks (i recommed version 12.4 because thats the version of LFS this distro is now based off) and follow the guide to compile it from there
+## If you need help compiling / installing stuff, you can go into the Linux From Scratch handbooks (i recommed version 12.4 because thats the version of LFS this distro is now based off) and follow the guide to compile it from there ##
 # LOGO BELOW
 ![Rootforge Logo](rootforgelogo.png)
 
